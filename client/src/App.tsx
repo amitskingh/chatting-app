@@ -8,18 +8,20 @@ export default function Chat() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    socket.on("message", (data) => {
+    socket.on("channel", (data) => {
+      console.log(data);
+
       setMessages((prev) => [...prev, data.text]);
     });
 
     return () => {
-      socket.off("message");
+      socket.off("channel");
     };
   }, []);
 
   const sendMessage = () => {
     if (message.trim()) {
-      socket.emit("message", { user: "React User", text: message });
+      socket.emit("channel", { user: "React User", text: message });
       setMessage("");
     }
   };

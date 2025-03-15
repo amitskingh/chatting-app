@@ -4,6 +4,11 @@
   "description": "The real time scalable chat app",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node dist/src/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only index.ts",
+    "build": "rimraf dist && tsc"
+  },
   "dependencies": {
     "express": "^4.21.2",
     "socket.io": "^4.8.1"
@@ -12,6 +17,7 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.10",
     "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.2"
   }
 }

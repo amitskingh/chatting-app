@@ -22,11 +22,11 @@ io.on("connection", (socket: Socket) => {
   console.log(`New client connected: ${socket.id}`);
 
   // Handle receiving messages
-  socket.on("message", (data) => {
+  socket.on("channel", (data) => {
     console.log("Received message:", data);
 
     // Broadcast message to all clients
-    io.emit("message", data);
+    io.emit("channel", data);
   });
 
   // Handle disconnection
